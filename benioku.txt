@@ -1,0 +1,30 @@
+MVC PROJESİ UYGULAMA (FİLM DÜNYASI)
+1. ASP.NET Core MVC projesi oluşturun.
+
+2. Entity Framework Core kullanımı için gerekli paketleri kurun ve ayarlamaları yapın.
+
+3. Film entity sınıfını şu özelliklerle oluşturun:
+  - Id:int
+  - Ad:string (max: 400, zorunlu)
+  - Yıl:int
+  - Puan:decimal Precision(3, 1)
+
+4. UygulamaDbContext oluştur, gerekli değişiklikleri yap ve örnek 6 adet film seed data olarak gir.
+
+	- Fight Club 	   1999		8.7
+	- Inception		   2010		8.7
+	- The Matrix		1999		8.7
+	- Joker				2019		8.3
+	- Die Hard			1988		8.2
+	- Green Book		2018		8.2
+
+5. Migrations, Update
+
+6. FilmlerController oluştur ve 
+	Index   : Listeleme
+	Yeni    : Yeni Film Oluşturma
+	Duzenle : Mevcut Filmi Güncelleme
+	Sil     : Film Silme
+işlevlerini yerine getiren action ve view'leri oluştur.
+
+7. Yeni filmler ekleme, düzenleme ve silme suretiyle uygulamayı test et.	 

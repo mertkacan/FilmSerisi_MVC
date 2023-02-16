@@ -1,0 +1,30 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Filmler</h1>
+<form method="get" class="d-flex">
+    <select class="form-select mb-2 me-2 flex-grow-1" asp-items="ViewBag.Turler" asp-for="TurId">
+        <option value="">Tümü</option>
+    </select>
+    <button class="btn btn-primary">Listele</button>
+</form>
+
+<table class="table mt-2">
+    <thead><tr><th>Id</th><th><a asp-action="Index" asp-route-sira="ad">Ad</a></th><th><a asp-action="Index" asp-route-sira="yil">Yıl</a></th><th><a asp-action="Index" asp-route-sira="puan">Puan</a></th><th>Türler</th></tr></thead>
+    <tbody>
+        @foreach (var item in Model.Filmler)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Ad</td>
+                <td>@item.Yil</td>
+                <td>@item.Puan</td>
+                <td>
+                    @string.Join(", ", item.Turler.Select(x => x.Ad))
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

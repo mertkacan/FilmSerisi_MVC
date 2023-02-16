@@ -1,0 +1,39 @@
+﻿@model List<Film>
+@{
+    ViewBag.Title = "Filmler";
+}
+
+<h1>Filmler</h1>
+
+<a class="mt-4" asp-action="Yeni">Yeni Film</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ad</th>
+            <th>Yıl</th>
+            <th>Puan</th>
+            <th>Türler</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Ad</td>
+                <td>@item.Yil</td>
+                <td>@item.Puan</td>
+                <td>
+                    @string.Join(", ", item.Turler.Select(x => x.Ad))
+                </td>
+                <td>
+                    <a class="text-warning me-4" asp-action="Duzenle" asp-route-id="@item.Id">Düzenle</a>
+                    <a class="text-danger" asp-action="Sil" asp-route-id="@item.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
